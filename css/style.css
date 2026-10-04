@@ -1,0 +1,90 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #05060c;
+  overflow: hidden;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#wrap {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game {
+  display: block;
+  width: min(100vw, calc(100dvh * 4 / 3));
+  aspect-ratio: 4 / 3;
+  height: auto;
+  background: #000;
+  image-rendering: pixelated;
+}
+
+/* スマホでは画面上部に寄せ、下に操作パッドを置く */
+body.touch #wrap {
+  align-items: flex-start;
+  padding-top: env(safe-area-inset-top);
+}
+
+#touch[hidden] { display: none; }
+
+#dpad {
+  position: fixed;
+  left: calc(20px + env(safe-area-inset-left));
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  touch-action: none;
+}
+
+#dpad .knob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+#buttons {
+  position: fixed;
+  right: calc(20px + env(safe-area-inset-right));
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+#buttons button {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 200, 120, 0.2);
+  color: #fff;
+  font: 15px 'DotGothic16', sans-serif;
+  touch-action: none;
+}
+
+#buttons button[data-action="attack"] {
+  width: 84px;
+  height: 84px;
+  margin-bottom: 36px;
+  background: rgba(255, 110, 70, 0.3);
+}
+
+#buttons button.on {
+  background: rgba(255, 255, 255, 0.45);
+}

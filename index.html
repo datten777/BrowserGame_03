@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>灯火の継承者</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="wrap">
+    <canvas id="game" aria-label="ゲーム画面"></canvas>
+  </main>
+
+  <div id="touch" hidden>
+    <div id="dpad"><div class="knob"></div></div>
+    <div id="buttons">
+      <button type="button" data-action="dodge">回避</button>
+      <button type="button" data-action="attack">攻撃</button>
+    </div>
+  </div>
+
+  <noscript>このゲームを遊ぶには JavaScript を有効にしてください。</noscript>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
